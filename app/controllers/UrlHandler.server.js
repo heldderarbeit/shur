@@ -10,14 +10,16 @@ function UrlHandler () {
 
     this.createShurl = function (req, res) {
     	
-	    var originalUrl = normalizeUrl(req.originalUrl.split('/new/')[1]);
+        var originalUrl = normalizeUrl(req.originalUrl.split('/new/')[1]);
 
-	    if (!validUrl(originalUrl) && (originalUrl.replace('http://', '').replace('/', '') !== invalidUrl)) {
-	        res.send({ error: 'input doesn\'t look like an URI' });
-	    } else {
-	        if (originalUrl.replace('http://', '').replace('/', '') === invalidUrl) originalUrl = 'invalid';
+	if (!validUrl(originalUrl) && (originalUrl.replace('http://', '').replace('/', '') !== invalidUrl)) {
+	    res.send({ error: 'input doesn\'t look like an URI' });
+	} else {
+	    
+	    if (originalUrl.replace('http://', '').replace('/', '') === invalidUrl) originalUrl = 'invalid';
 	        
             Url.findOrCreate({ 'original_url': originalUrl }, function(err, url, created) {
+                
                 if (err) console.error('could not work with the url database:', err);
                 
                 res.send({
@@ -25,21 +27,22 @@ function UrlHandler () {
                     'short_url': process.env.APP_URL + url.id 
                 });
             });
-	    }
-	};
+	}
+    };
 	
-	this.redirectToShurl = function (req, res) {
+    this.redirectToShurl = function (req, res) {
 		
-	    Url.findOne({ 'id': req.params.shortUrl }, function(err, url) {
-	        if (err) console.error('could not search the url database:', err);
+	Url.findOne({ 'id': req.params.shortUrl }, function(err, url) {
+	    
+            if (err) console.error('could not search the url database:', err);
 	        
-	        if (url) {
+	    if (url) {
                 res.redirect(url.original_url); 
-	        } else {
-	            res.send({ error: 'no short url found for code "'  + req.params.shortUrl + '"'});
-	        }
-	    });
-	};
+	    } else {
+	        res.send({ error: 'no short url found for code "'  + req.params.shortUrl + '"'});
+	    }
+	});
+    };
 }
 
 module.exports = UrlHandler;
