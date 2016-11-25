@@ -6,9 +6,9 @@ var ShortId = require('mongoose-shortid-nodeps');
 var Schema = mongoose.Schema;
 
 var Url = new Schema({
-	// index is set so that the field is unique
-	id: { type: ShortId, index: true, len: 4 },
-	original_url: String
+    // index is set so that the field is unique
+    id: { type: ShortId, index: true, len: 4 },
+    original_url: String
 });
 
 Url.plugin(findOrCreate);
