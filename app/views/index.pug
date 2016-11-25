@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Shur
+    link(rel='stylesheet', href='libs/bootstrap-3.3.7/css/bootstrap.min.css', type='text/css')
+    link(rel='stylesheet', href='css/main.css', type='text/css')
+  body
+  
+    .container
+        
+      header
+        h1 Shur
+        
+      h2 Create a new short URL
+      
+      .new
+        code
+          a(href=app_url+'new/https://www.twitch.tv') 
+            |#{app_url}new/https://www.twitch.tv
+          
+        p If you want to pass a site that doesn't exist (or an invalid url) for some reason:
+        code
+          a(href=app_url+'new/invalid?allow=true') 
+           |#{app_url}new/invalid?allow=true
+        
+      h3 Output
+      code
+        | { "original_url": "https://www.twitch.tv",
+        | "short_url": "#{app_url}#{example_id}" }
+        
+      p.use Now 
+        code
+          a(href=app_url+example_id) #{app_url}#{example_id}
+        |  redirects to 
+        code
+          a(href='https://www.twitch.tv') https://www.twitch.tv
+        |.

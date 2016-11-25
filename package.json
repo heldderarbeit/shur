@@ -1,0 +1,39 @@
+{
+  "name": "shur",
+  "version": "1.0.0",
+  "description": "Url shortener",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "dotenv": "^2.0.0",
+    "mongoose": "^4.7.0",
+    "mongoose-shortid-nodeps": "^0.6.5",
+    "normalize-url": "^1.8.0",
+    "pug": "^2.0.0-beta6",
+    "valid_url": "^1.1.1",
+    "mongoose-findorcreate": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heldderarbeit/shur.git"
+  },
+  "author": "heldderarbeit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heldderarbeit/shur/issues"
+  },
+  "homepage": "https://github.com/heldderarbeit/shur#readme",
+  "keywords": [
+    "MongoDB",
+    "Mongoose",
+    "Express",
+    "Node",
+    "javascript",
+    "Pug"
+  ]
+}
