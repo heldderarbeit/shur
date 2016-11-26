@@ -15,23 +15,36 @@ html
       
       .new
         code
-          a(href=app_url+'new/https://www.twitch.tv') 
-            |#{app_url}new/https://www.twitch.tv
+          a(href=app_url+'new/http://www.twitch.tv' target='_blank') 
+            |#{app_url}new/http://www.twitch.tv
           
         p If you want to pass a site that doesn't exist (or an invalid url) for some reason:
         code
-          a(href=app_url+'new/invalid?allow=true') 
+          a(href=app_url+'new/invalid?allow=true' target='_blank') 
            |#{app_url}new/invalid?allow=true
         
       h3 Output
       code
-        | { "original_url": "https://www.twitch.tv",
+        | { "original_url": "http://www.twitch.tv",
         | "short_url": "#{app_url}#{example_id}" }
         
       p.use Now 
         code
-          a(href=app_url+example_id) #{app_url}#{example_id}
+          a(href=app_url+example_id target='_blank') #{app_url}#{example_id}
         |  redirects to 
         code
-          a(href='https://www.twitch.tv') https://www.twitch.tv
+          a(href='http://www.twitch.tv' target='_blank') http://www.twitch.tv
+        |.
+
+      p 
+        code
+          a(href='http://www.twitch.tv' target='_blank') twitch.tv
+        |, 
+        code
+          a(href='http://www.twitch.tv' target='_blank') www.twitch.tv
+        |, and 
+        code
+          a(href='http://www.twitch.tv' target='_blank') http://www.twitch.tv
+        |  all point to the same id 
+        code #{example_id}
         |.
