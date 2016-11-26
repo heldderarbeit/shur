@@ -13,3 +13,5 @@ If you want to pass a site that doesn't exist (or an invalid url) for some reaso
 `{ "original_url": "https://www.twitch.tv", "short_url": "https://shur.herokuapp.com/5p_S" }`
 
 Now `https://shur-heldderarbeit.c9users.io/5p_S` redirects to `https://www.twitch.tv`.
+
+`twitch.tv`, `www.twitch.tv`, and `http://www.twitch.tv` all point to the same id `5p_S`.
