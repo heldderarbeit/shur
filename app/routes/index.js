@@ -1,7 +1,7 @@
 'use strict';
 
 var path = process.cwd();
-var UrlHandler = require(path + '/app/controllers/UrlHandler.server.js');
+var UrlHandler = require(path + '/app/controllers/urlHandler.server.js');
 
 module.exports = function (app) {
     
