@@ -19,5 +19,5 @@ module.exports = function (app) {
         .get(urlHandler.createShurl); 
         
     app.route('/:shortUrl')
-        .get(urlHandler.redirectToShurl);
+        .get(urlHandler.redirectToUrl);
 };

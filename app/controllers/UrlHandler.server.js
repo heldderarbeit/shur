@@ -30,7 +30,7 @@ function UrlHandler () {
 	}
     };
 	
-    this.redirectToShurl = function (req, res) {
+    this.redirectToUrl = function (req, res) {
 		
 	Url.findOne({ 'id': req.params.shortUrl }, function(err, url) {
 	    
